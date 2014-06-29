@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Kitties</title>
+</head>
+<style>
+	html, body {
+		height: 100%;
+		margin: 0;
+		background-color: #000;
+	}
+
+	#container {
+		overflow: hidden;
+		width: 100%;
+		height: 100%;
+		margin: 0 auto;
+	}
+
+	.cover {
+		background-size: cover !important;
+	}
+
+	.contain {
+		background-size: contain !important;
+	}
+
+	.content {
+		position:absolute;
+		top:0;
+		left:0;
+		right:0;
+		bottom:0;
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		image-rendering: optimizeSpeed;
+		image-rendering: -moz-crisp-edges;
+		image-rendering: -o-crisp-edges;
+		image-rendering: -webkit-optimize-contrast;
+		image-rendering: optimize-contrast;
+		-ms-interpolation-mode: nearest-neighbor;
+	}
+</style>
+<body>
+<div id="container">
+	<div id="content" class="content contain"></div>
+</div>
+<script>
+	function update(){
+		var num = (Math.random() * 10) | 0,
+				d = document,
+				c = d.getElementById('content');
+		c.style.backgroundImage = 'url(http://thecatapi.com/api/images/get?format=src&type=gif)';
+		setTimeout(update, 10000);
+	}
+	update();
+</script>
+</body>
+</html>
