@@ -47,12 +47,15 @@
 	<div id="content" class="content contain"></div>
 </div>
 <script>
+	var updateInterval = 10000
 	function update(){
+		console.log('refresh')
 		var num = (Math.random() * 10) | 0,
 				d = document,
-				c = d.getElementById('content');
-		c.style.backgroundImage = 'url(http://thecatapi.com/api/images/get?format=src&type=gif)';
-		setTimeout(update, 10000);
+				c = d.getElementById('content'),
+				cacheBust = new Date().getTime()
+		c.style.backgroundImage = 'url(http://thecatapi.com/api/images/get?format=src&type=gif&'+cacheBust+')';
+		setTimeout(update, updateInterval);
 	}
 	update();
 </script>
